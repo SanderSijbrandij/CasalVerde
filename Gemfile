@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.4.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'carrierwave', '0.11.2'
 gem 'cloudinary'
@@ -21,6 +22,9 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'faker'
 gem 'devise'
+gem 'react-rails', '~> 2.2'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development do
   gem 'guard'
