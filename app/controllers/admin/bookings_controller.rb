@@ -4,6 +4,8 @@ class Admin::BookingsController < Admin::BaseController
     @bookings_last = Booking.last_checked_out
     @bookings_reserved = Booking.reserved_bookings
     @bookings_confirmed = Booking.confirmed_bookings
+    @bookings = Booking.all
+    render json: @bookings
   end
 
   def past
@@ -42,7 +44,11 @@ class Admin::BookingsController < Admin::BaseController
     booking = Booking.find(params[:id])
     booking.destroy
     # head :no_content
-    redirect_to admin_bookings_path
+
+    render status: 200, json: {
+      message: "Review deleted"
+    }.to_json
+    # redirect_to admin_bookings_path
   end
 
   private
