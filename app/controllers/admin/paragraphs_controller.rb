@@ -1,9 +1,9 @@
 class Admin::ParagraphsController < Admin::BaseController
-
   def index
     @paragraphs = Paragraph.all.order(id: :asc)
     @page = Page.find(params[:page_id])
     @paragraph = Paragraph.new
+    render json: @paragraphs
   end
 
   def create
@@ -12,9 +12,16 @@ class Admin::ParagraphsController < Admin::BaseController
     @paragraph.page_id = @page.id
 
     if @paragraph.save
-      redirect_to admin_page_paragraphs_path
+      # redirect_to admin_page_paragraphs_path
+      render status: 201, json: {
+        message: 'paragraph created',
+        paragraph: @paragraph
+      }.to_json
     else
-      render "index"
+      # render "index"
+      render status: 422, json: {
+        errors: paragraph.errors
+      }.to_json
     end
   end
 
@@ -22,21 +29,33 @@ class Admin::ParagraphsController < Admin::BaseController
     paragraph = Paragraph.find(params[:id])
 
     if paragraph.update(paragraph_params)
-      redirect_to admin_page_paragraphs_path
+      # redirect_to admin_page_paragraphs_path
+      render status: 201, json: {
+        message: 'paragraph updated',
+        paragraph: paragraph
+      }.to_json
     else
-      render :edit
+      # render :edit
+      render status: 422, json: {
+        errors: paragraph.errors
+      }.to_json
     end
   end
 
   def destroy
     @paragraph = Paragraph.find(params[:id])
     @page = Page.find(params[:page_id])
+    @paragraph.destroy
 
-    if @paragraph.destroy
-      redirect_to admin_page_paragraphs_path
-    else
-      redirect_to admin_page_paragraphs_path
-    end
+    render status: 200, json: {
+      message: 'paragraph deleted'
+    }.to_json
+
+    # if @paragraph.destroy
+    #   redirect_to admin_page_paragraphs_path
+    # else
+    #   redirect_to admin_page_paragraphs_path
+    # end
   end
 
   private

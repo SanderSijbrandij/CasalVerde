@@ -1,8 +1,14 @@
-$base-color: rgb(111, 133, 97);
-$light-base-color: lighten( $base-color, 10% );
+@import url('https://fonts.googleapis.com/css?family=Faustina');
+
+// rgba(34, 34, 34, .05)
+$base-color: #6bae63;
+$light-base-color: lighten($base-color, 10%);
+$dark-base-color: darken($base-color, 10%);
+$darker-base-color: darken($base-color, 20%);
 $warning-color: rgb(168, 105, 105);
 $base-dark: rgb(51, 51, 51);
-$font-body: 'Lato', sans-serif;
+$font-body: Verdana, 'Helvetica Neue', Arial, sans-serif;
+$font-logo: 'Faustina', serif;
 $font-title: 'Roboto Slab', serif;
 $content-width: 1000px;
 $font-normal-weight: 400;

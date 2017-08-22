@@ -2,6 +2,9 @@
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
+    padding:20px;
+    border: 2px solid bisque;
+    background-color: white;
 
     input {
         width: 100%;
@@ -67,7 +70,7 @@
 .submit_samll {
     text-transform: uppercase;
     display: block !important;
-    background-color: #6F8561;
+    background-color: #6bae63;
     border: none;
     width: 220px !important;
     height: auto;
@@ -83,7 +86,7 @@
 .submit {
     text-transform: uppercase;
     display: block !important;
-    background-color: #6F8561;
+    background-color: #6bae63;
     border: none;
     width: 220px !important;
     height: 40px;

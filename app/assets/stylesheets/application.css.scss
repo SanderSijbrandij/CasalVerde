@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto+Slab:400,700');
+@import url('https://fonts.googleapis.com/css?family=Caveat|Great+Vibes|Tangerine');
+@import "normalize/import-now";
+@import "base/_module";
+@import "features/module";
+@import "partials/module";
+@import "pages/module";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.content {
+	max-width: $content-width;
+	margin: 0 auto;
+	.booking {
+		max-width: 90em;
+	}
+}

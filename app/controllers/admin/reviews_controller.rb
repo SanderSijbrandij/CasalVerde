@@ -4,12 +4,16 @@ class Admin::ReviewsController < Admin::BaseController
   def index
     @reviews = Review.all.order(:created_at)
     @review = Review.new
+    render json: @reviews
   end
 
   # DELETE /admin/prices/:id
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to admin_reviews_path
+
+    render status: 200, json: {
+      message: "Review deleted"
+    }.to_json
   end
 end
